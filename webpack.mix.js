@@ -12,4 +12,5 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
+    .js('resources/js/delete_tag.js', 'public/js/delete_tag.js')
     .sass('resources/sass/app.scss', 'public/css');
