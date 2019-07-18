@@ -21,5 +21,4 @@ return [
     'edit' => 'Sua',
     'update' => 'Cap nhat',
     'createby' => 'id nguoi tao',
-
 ];
