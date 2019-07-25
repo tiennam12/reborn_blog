@@ -11,15 +11,7 @@
                 @csrf
                 <div class="col-s12 image-user">
                     <h6 class="font-weight-bold">{{ __('user-info.image_user') }}</h6>
-                    @if (auth()->user()->provider_id)
-                        <img src="{{ auth()->user()->image }}" alt="" width="80" height="80" class="rounded-circle">
-                    @else
-                        @if (auth()->user()->image)
-                            <img src="{{ asset('image/auth()->user()->image') }}" alt="" width="80" height="80" class="rounded-circle">
-                        @else
-                            <img src="{{ asset('image/profile.png') }}" alt="" width="80" height="80" class="rounded-circle">
-                        @endif
-                    @endif
+                    <img src="{{ showAvatar(auth()->user()->provider) }}" alt="" width="80" height="80" class="rounded-circle">
                     <div class="form-group mt-2">
                         <input type="file" class="form-control-file" id="image">
                     </div>

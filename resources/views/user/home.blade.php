@@ -117,15 +117,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm-2 ml-0 mr-1">
-                                        @if (auth()->user()->image)
-                                            @if (auth()->user()->provider_id)
-                                                <img src="{{ auth()->user()->image }}" alt="" width="80px" height="80px" class="rounded-circle">
-                                            @else
-                                                <a href="#"><img src="{{ asset('image/auth()->user()->image') }}" alt="" class="rounded-circle" width="80px" height="80px"></a>
-                                            @endif
-                                        @else
-                                            <a href="#"><img src="{{ asset('image/profile.png') }}" alt="" class="rounded-circle" width="80px" height="80px"></a>
-                                        @endif
+                                        <img src="{{ showAvatar(auth()->user()->provider) }}" alt="" width="80px" height="80px" class="rounded-circle">
                                     </div>
                                     <div class="col-sm-9 ml-3">
                                         <h5 class="card-title ml-4"><a href="#"
