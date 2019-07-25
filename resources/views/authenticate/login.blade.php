@@ -16,10 +16,15 @@
         <nav class="navbar navbar-dark navbar-expand-sm bg-dark">
             <div class="container">
                 <div class="menu-left">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="{{ route('home') }}">
                         <i class="fab fa-redhat px-2 text-danger"></i>Reborn
                     </a>
                 </div>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="{{ route('register') }}" class="nav-link text-light"><i class="fas fa-user-plus px-2"></i>{{ __('header.register') }}</a>
+                    </li>                
+                </ul>
             </div>
         </nav>
     </header>
@@ -78,19 +83,19 @@
                                 </div>
                                 <div class="form-group row justify-content-center">
                                     <div class="col-sm-2 px-1">
-                                        <a href="#"><button type="button"
+                                        <a href="{{ url('/login/facebook') }} " class="text-decoration-none"><button type="button"
                                                 class="btn btn-primary btn-block font-weight-bold"><i
                                                     class="fab fa-facebook-f"></i>{{ __('authenticate.facebook') }}</button></a>
                                     </div>
                                     <div class="col-sm-2 px-1">
-                                        <a href="#"><button type="button"
-                                                class="btn btn-info btn-block font-weight-bold"><i
-                                                    class="fab fa-twitter"></i>
-                                                {{ __('authenticate.twitter') }}
+                                        <a href="{{ url('/login/google') }}" class="text-decoration-none"><button type="button"
+                                                class="btn btn-danger btn-block font-weight-bold"><i
+                                                    class="fab fa-google"></i>
+                                                {{ __('authenticate.google') }}
                                             </button></a>
                                     </div>
                                     <div class="col-sm-2 px-1">
-                                        <a href="#"><button type="button"
+                                        <a href="{{ url('/login/github') }}" class="text-decoration-none"><button type="button"
                                                 class="btn btn-secondary btn-block font-weight-bold"><i
                                                     class="fab fa-github"></i>
                                                 {{ __('authenticate.github') }}

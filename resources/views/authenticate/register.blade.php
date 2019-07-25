@@ -16,10 +16,15 @@
         <nav class="navbar navbar-dark navbar-expand-sm bg-dark">
             <div class="container">
                 <div class="menu-left">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="{{ route('home') }}">
                         <i class="fab fa-redhat px-2 text-danger"></i>Reborn
                     </a>
                 </div>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="{{ route('login') }}" class="nav-link text-light"><i class="fas fa-sign-in-alt px-2"></i>{{ __('header.sign_in') }}</a>
+                    </li>               
+                </ul>
             </div>
         </nav>
     </header>
@@ -40,8 +45,7 @@
 
                                     <div class="col-sm-6">
                                         <input id="fullname" type="text"
-                                            class="form-control @error('fullname') is-invalid @enderror" name="fullname"
-                                            value="{{ old('fullname') }}" required autocomplete="name" autofocus placeholder="Fullname">
+                                            class="form-control @error('fullname') is-invalid @enderror" name="fullname"  required autocomplete="name" autofocus placeholder="Fullname">
 
                                         @error('fullname')
                                         <span class="invalid-feedback" role="alert">
@@ -57,8 +61,7 @@
 
                                     <div class="col-sm-6">
                                         <input id="nickname" type="text"
-                                            class="form-control @error('nickname') is-invalid @enderror" name="nickname"
-                                            value="{{ old('nickname') }}" required autocomplete="name" autofocus placeholder="Nickname">
+                                            class="form-control @error('nickname') is-invalid @enderror" name="nickname" required autocomplete="name" autofocus placeholder="Nickname">
 
                                         @error('nickname')
                                         <span class="invalid-feedback" role="alert">
@@ -75,8 +78,7 @@
 
                                     <div class="col-sm-6">
                                         <input id="email" type="email"
-                                            class="form-control @error('email') is-invalid @enderror" name="email"
-                                            value="{{ old('email') }}" required autocomplete="email" placeholder="Email">
+                                            class="form-control @error('email') is-invalid @enderror" name="email" required autocomplete="email" placeholder="Email">
 
                                         @error('email')
                                         <span class="invalid-feedback" role="alert">
