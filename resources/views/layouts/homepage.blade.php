@@ -14,7 +14,7 @@
         <nav class="navbar navbar-dark navbar-expand-sm bg-dark">
             <div class="container">
                 <div class="menu-left">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="{{ route('home') }}">
                         <i class="fab fa-redhat px-2 text-danger"></i>Reborn
                     </a>
                 </div>
@@ -59,16 +59,18 @@
                             <li class="nav-item dropdown px-1">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    @if (Auth::user()->image)
-                                        <img src="{{ asset('image/Auth::user()->image') }}" alt="" class="rounded-circle" width="26px"
-                                        height="26px">
+                                    @if (auth()->user()->image)
+                                        @if (auth()->user()->provider_id)
+                                            <img src="{{ auth()->user()->image }}" alt="" class="rounded-circle" width="26px" height="26px">
+                                        @else
+                                            <img src="{{ asset('image/auth()->user()->image') }}" alt="" class="rounded-circle" width="26px" height="26px"> 
+                                        @endif
                                     @else
-                                        <img src="{{ asset('image/profile.png') }}" alt="" class="rounded-circle" width="26px"
-                                        height="26px">
+                                        <img src="{{ asset('image/profile.png') }}" alt="" class="rounded-circle" width="26px" height="26px">
                                     @endif
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#"><i
+                                    <a class="dropdown-item" href="{{ route('users.show', ['id' => auth()->user()->id]) }}"><i
                                             class="fas fa-user px-2"></i>{{ __('header.profile') }}</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="#"><i

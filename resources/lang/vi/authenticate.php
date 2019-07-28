@@ -2,7 +2,7 @@
 return [
     'login' => 'Đăng Nhập',
     'facebook' => 'Facebook',
-    'twitter' => 'Twitter',
+    'google' => 'Google',
     'github' => 'Github',
     'register' => 'Đăng Ký',
 ];

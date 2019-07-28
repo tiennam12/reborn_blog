@@ -2,7 +2,7 @@
 return [
     'login' => 'Login',
     'facebook' => 'Facebook',
-    'twitter' => 'Twitter',
+    'google' => 'Google',
     'github' => 'Github',
     'register' => 'Register',
 ];

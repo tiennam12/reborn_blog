@@ -18,6 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/users/{id}', 'UserController@show')->name('users.show');
+
+Route::get('login/{provider}/callback','SocialController@callback');
+Route::get('login/{provider}', 'SocialController@redirect');
 
 Route::group(['prefix'=>'/tags'],function() {
     Route::get('/{tag}/edit', 'TagController@edit')->name('tags.edit');
