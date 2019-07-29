@@ -59,18 +59,10 @@
                             <li class="nav-item dropdown px-1">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    @if (auth()->user()->image)
-                                        @if (auth()->user()->provider_id)
-                                            <img src="{{ auth()->user()->image }}" alt="" class="rounded-circle" width="26px" height="26px">
-                                        @else
-                                            <img src="{{ asset('image/auth()->user()->image') }}" alt="" class="rounded-circle" width="26px" height="26px"> 
-                                        @endif
-                                    @else
-                                        <img src="{{ asset('image/profile.png') }}" alt="" class="rounded-circle" width="26px" height="26px">
-                                    @endif
+                                    <img src="{{ showAvatar(auth()->user()->provider) }}" alt="" class="rounded-circle" width="26px" height="26px">
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('users.show', ['id' => auth()->user()->id]) }}"><i
+                                    <a class="dropdown-item" href="{{ route('users.edit', ['id' => auth()->user()->id]) }}"><i
                                             class="fas fa-user px-2"></i>{{ __('header.profile') }}</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="#"><i

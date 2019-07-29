@@ -7,27 +7,27 @@
             <h6><a href="#" class="text-decoration-none font-weight-bold text-info active">{{ __('user-info.password') }}</a></h6>
         </div>
         <div class="col-sm-8 offset-1 right-section mt-5">
-            <form>
+            @if (session('msg'))
+                <div class="alert alert-info">{{ session('msg') }}</div>
+            @endif
+            <form method= "POST" action="{{ route('users.update', ['id' => $user->id]) }}" enctype="multipart/form-data">
                 @csrf
+                {{ method_field('PUT') }}
                 <div class="col-s12 image-user">
                     <h6 class="font-weight-bold">{{ __('user-info.image_user') }}</h6>
                     <img src="{{ showAvatar(auth()->user()->provider) }}" alt="" width="80" height="80" class="rounded-circle">
                     <div class="form-group mt-2">
-                        <input type="file" class="form-control-file" id="image">
+                        <input type="file" class="form-control-file" name="image" id="image">
                     </div>
                 </div>
                 <div class="col-s12 edit-info mt-2">
                     <div class="form-group">
                         <label for="fullname" class="font-weight-bold">{{ __('user-info.user_name') }}</label>
-                        <input type="text" class="form-control" id="fullname" placeholder="" value="{{ auth()->user()->fullname }}">
+                        <input type="text" class="form-control" name="fullname" id="fullname" placeholder="{{ $user->fullname }}" value="{{ $user->fullname }}">
                     </div>
                     <div class="form-group">
                         <label for="nickname" class="font-weight-bold">{{ __('user-info.nick_name') }}</label>
-                        <input type="text" class="form-control" id="nickname" placeholder="" value="{{ auth()->user()->nickname }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="email" class="font-weight-bold">{{ __('user-info.email') }}</label>
-                        <input type="email" class="form-control" id="email" placeholder="" value="{{ auth()->user()->email }}">
+                        <input type="text" class="form-control" name="nickname" id="nickname" placeholder="{{ $user->nickname }}" value="{{ $user->nickname }}">
                     </div>
                     <button type="submit" class="btn btn-info rounded-pill font-weight-bold"><i
                             class="far fa-save pr-2"></i>{{ __('user-info.save') }}</button>
