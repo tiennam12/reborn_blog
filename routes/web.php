@@ -18,16 +18,21 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/users/{id}', 'UserController@show')->name('users.show');
+
 
 Route::get('login/{provider}/callback','SocialController@callback');
 Route::get('login/{provider}', 'SocialController@redirect');
 
-Route::group(['prefix'=>'/tags'],function() {
+Route::group(['prefix' => 'users'], function() {
+	Route::get('/{id}', 'UserController@edit')->name('users.edit');
+	Route::put('/{id}', 'UserController@update')->name('users.update');	
+});
+
+Route::group(['prefix' => 'tags'], function() {
     Route::get('/{tag}/edit', 'TagController@edit')->name('tags.edit');
     Route::get('/create', 'TagController@create')->name('tags.create');
     Route::get('/{tag}', 'TagController@show')->name('tags.show');
-    Route::post('/{tag}', 'TagController@update')->name('tags.update');
+    Route::put('/{tag}', 'TagController@update')->name('tags.update');
     Route::delete('/{tag}', 'TagController@destroy')->name('tags.destroy');
     Route::get('/', 'TagController@index')->name('tags.index');
     Route::post('/', 'TagController@store')->name('tags.store');

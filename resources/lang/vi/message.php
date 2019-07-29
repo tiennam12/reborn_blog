@@ -13,12 +13,12 @@ return [
     |
     */
 
-    'tags' => 'The',
-    'name' => 'Ten',
-    'description' => 'Mo ta',
-    'list' => 'danh sach',
-    'create' => 'Tao',
-    'edit' => 'Sua',
-    'update' => 'Cap nhat',
-    'createby' => 'id nguoi tao',
+    'tags' => 'Thẻ',
+    'name' => 'Tên',
+    'description' => 'Mô tả',
+    'list' => 'Danh sách',
+    'create' => 'Tạo',
+    'edit' => 'Sửa',
+    'update' => 'Cập nhật',
+    'createby' => 'ID người tạo',
 ];
