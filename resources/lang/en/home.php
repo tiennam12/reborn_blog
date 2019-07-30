@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 return [
 	'good_article' => 'Good Article',
 	'new_article'=> 'New Article',

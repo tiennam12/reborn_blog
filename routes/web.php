@@ -28,6 +28,11 @@ Route::group(['prefix' => 'users'], function() {
 	Route::put('/{id}', 'UserController@update')->name('users.update');	
 });
 
+Route::group(['prefix' => 'passwords'], function() {
+    Route::get('/{id}', 'PasswordController@edit')->name('passwords.edit');
+    Route::put('/{id}', 'PasswordController@changePassword')->name('passwords.change');
+});
+
 Route::group(['prefix' => 'tags'], function() {
     Route::get('/{tag}/edit', 'TagController@edit')->name('tags.edit');
     Route::get('/create', 'TagController@create')->name('tags.create');

@@ -1,4 +1,5 @@
 <?php
+
 return [
 	'image_user' => 'Image User',
 	'user_name' => 'Username',

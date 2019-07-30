@@ -1,4 +1,5 @@
 <?php
+
 return [
 	'old_password' => 'Mật khẩu cũ',
 	'new_password' => 'Mật khẩu mới',

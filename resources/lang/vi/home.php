@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 return [
 	'good_article' => 'Bài viết nổi bật',
 	'new_article'=> 'Bài viết mới',

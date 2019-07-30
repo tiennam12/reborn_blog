@@ -3,8 +3,8 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-2 offset-1 left-section mt-5 border-right">
-            <h6><a href="#" class="text-decoration-none font-weight-bold text-info">{{ __('user-info.account') }}</a></h6>
-            <h6><a href="#" class="text-decoration-none font-weight-bold text-info active">{{ __('user-info.password') }}</a></h6>
+            <h6><a href="{{ route('users.edit', ['id' => $user->id]) }}" class="text-decoration-none font-weight-bold text-info">{{ __('user-info.account') }}</a></h6>
+            <h6><a href="{{ route('passwords.edit', ['id' => $user->id]) }}" class="text-decoration-none font-weight-bold text-info active">{{ __('user-info.password') }}</a></h6>
         </div>
         <div class="col-sm-8 offset-1 right-section mt-5">
             @if (session('msg'))

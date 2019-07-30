@@ -9,7 +9,8 @@ class UserController extends Controller
 {
     protected $userService;
 
-    public function __construct(UserService $userService) {
+    public function __construct(UserService $userService)
+    {
         return $this->userService = $userService;
     }
 
@@ -19,9 +20,9 @@ class UserController extends Controller
 
         return view('user.user-info', ['user' => $user]);            
     }
-
+    
     public function update(Request $request, $id)
-    {   
+    {
         $data = $request->only([
             'fullname',
             'nickname',
