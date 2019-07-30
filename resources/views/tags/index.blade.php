@@ -10,15 +10,15 @@
                         {{ session('status') }}
                     </div>
                 @endif
-                <div class="card-header">{{ __('message.list') }}</div>
+                <div class="card-header">{{ __('tag.list') }}</div>
                 <div class="card-body">
                     <table class="table">
                         <thead>
                         <tr>
                             <th scope="col">id</th>
-                            <th scope="col">{{ __('message.name') }}</th>
-                            <th scope="col">{{ __('message.description') }}</th>
-                            <th scope='col'>{{ __('message.createby') }}</th>
+                            <th scope="col">{{ __('tag.name') }}</th>
+                            <th scope="col">{{ __('tag.description') }}</th>
+                            <th scope='col'>{{ __('tag.createby') }}</th>
                         </tr>
                         </thead>
                         <tbody>

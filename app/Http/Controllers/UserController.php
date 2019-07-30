@@ -20,7 +20,7 @@ class UserController extends Controller
 
         return view('user.user-info', ['user' => $user]);            
     }
-    
+
     public function update(Request $request, $id)
     {
         $data = $request->only([

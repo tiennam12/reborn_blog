@@ -5,13 +5,13 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('message.create') }}</div>
+                <div class="card-header">{{ __('tag.create') }}</div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('tags.store') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('message.name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('tag.name') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" required>
@@ -22,14 +22,14 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('message.description') }}</label>
+                            <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('tag.description') }}</label>
                             <textarea name="description" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" id="description"></textarea>
                         </div>
                         
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('message.create') }}
+                                    {{ __('tag.create') }}
                                 </button>
                             </div>
                         </div>

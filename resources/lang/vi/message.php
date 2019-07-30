@@ -1,24 +1,7 @@
 <?php
 
 return [
-
-    /*
-    |--------------------------------------------------------------------------
-    | Password Reset Language Lines
-    |--------------------------------------------------------------------------
-    |
-    | The following language lines are the default lines which match reasons
-    | that are given by the password broker for a password update attempt
-    | has failed, such as for an invalid token or invalid new password.
-    |
-    */
-
-    'tags' => 'Thẻ',
-    'name' => 'Tên',
-    'description' => 'Mô tả',
-    'list' => 'Danh sách',
-    'create' => 'Tạo',
-    'edit' => 'Sửa',
-    'update' => 'Cập nhật',
-    'createby' => 'ID người tạo',
+    'update_success' => 'Cập nhật thành công',
+    'update_fail' => 'Cập nhật thất bại',
+    'not_found' => 'Không tìm thấy',
 ];

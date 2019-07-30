@@ -23,7 +23,17 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a href="{{ route('login') }}" class="nav-link text-light"><i class="fas fa-sign-in-alt px-2"></i>{{ __('header.sign_in') }}</a>
-                    </li>               
+                    </li>
+                    <li class="nav-item dropdown px-1">
+                        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown2" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-language px-2"></i>{{ __('language.language') }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                            <a class="dropdown-item" href="{{ route('language.change', ['locale' => 'en']) }}">{{ __('language.english') }}</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ route('language.change', ['locale' => 'vi']) }}">{{ __('language.vietnamese') }}</a>
+                        </div>
+                    </li>            
                 </ul>
             </div>
         </nav>

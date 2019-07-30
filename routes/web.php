@@ -13,22 +13,24 @@
 
 Route::get('/', function () {
     return view('user.home');
-});
+})->middleware('language');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('language');
+
+Route::get('language/{locale}', 'LanguageController@change')->name('language.change');
 
 
 Route::get('login/{provider}/callback','SocialController@callback');
 Route::get('login/{provider}', 'SocialController@redirect');
 
-Route::group(['prefix' => 'users'], function() {
+Route::group(['prefix' => 'users', 'middleware' => 'language'], function() {
 	Route::get('/{id}', 'UserController@edit')->name('users.edit');
 	Route::put('/{id}', 'UserController@update')->name('users.update');	
 });
 
-Route::group(['prefix' => 'passwords'], function() {
+Route::group(['prefix' => 'passwords', 'middleware' => 'language'], function() {
     Route::get('/{id}', 'PasswordController@edit')->name('passwords.edit');
     Route::put('/{id}', 'PasswordController@changePassword')->name('passwords.change');
 });

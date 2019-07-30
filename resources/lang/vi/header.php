@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'search' => 'Search',
+    'search' => 'Tìm Kiếm',
     'post' => 'Viết Bài',
     'home' => 'Trang Chủ',
     'saved' => 'Đã Lưu',
