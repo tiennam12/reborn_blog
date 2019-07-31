@@ -18,5 +18,15 @@ return [
     'sent' => 'We have e-mailed your password reset link!',
     'token' => 'This password reset token is invalid.',
     'user' => "We can't find a user with that e-mail address.",
-
+    'tags' => 'Tags',
+    'posts' => 'Posts',
+    'name' => 'Name',
+    'description' => 'Description',
+    'list' => 'List',
+    'create' => 'Create',
+    'edit' => 'Edit',
+    'update' => 'Update',
+    'createby' => 'Create by',
+    'title' => 'Title',
+    'content' => 'Content',
 ];
