@@ -4,20 +4,28 @@
     <div class="row">
         <div class="col-sm-9 mt-5 left-article">
             <div class="card border-light main-article overflow-hidden">
+        <div class="col-sm-9 mt-5">
+            <div class="card overflow-auto border-white"
                 <div class="card-body">
                     <div class="cart-title mb-4">
                         <h4 class="font-weight-bold mb-4 h3 text-info">@markdown{!! $post->title !!}@endmarkdown</h4>
                         <h5 class="mb-4"><a href="#" class="mr-2"><span class="badge badge-light">Tag here!</span></a>
                             <a href="#" class="mr-2"><span class="badge badge-light">Tag here!</span></a>
                             <a href="#" class="mr-2"><span class="badge badge-light">Tag here!</span></a>
-                        </h5>
+                        </h5
                         <footer class="blockquote-footer"><a href="#"><img src="{{ showAvatar($post->user->provider) }}" alt="" class="rounded-circle mr-2" width="20px" height="20px">{{ $post->user->fullname }}</a>
                         </footer>
                     </div>
                     <p class="card-text">
                         @markdown
                             {!! $post->content !!}
-                        @endmarkdown
+                        @endmarkdow
+                        <footer class="blockquote-footer"><a href="#"><img src="{{ asset('image/profile.png') }}" alt=""
+                                    class="rounded-circle mr-2" width="20px" height="20px"></a>Name User
+                        </footer>
+                    </div>
+                    <p class="card-text my-auto">
+                        @markdown{!! $post->content !!}@endmarkdown
                     </p>
                 </div>
             </div>

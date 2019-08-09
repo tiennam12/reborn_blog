@@ -16,7 +16,7 @@ class CreateRolesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('description');
-            $table->bigInteger('permission');
+            $table->bigInteger('permission')->default(config('seed.user'));
             $table->timestamps();
         });
     }

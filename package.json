@@ -24,6 +24,8 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "datatables.net": "^1.10.19",
+        "datatables.net-dt": "^1.10.19",
         "simplemde": "^1.11.2"
     }
 }

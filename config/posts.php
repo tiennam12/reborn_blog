@@ -1,6 +1,6 @@
 <?php
 return [
     'image_path' => 'images/',
-    'paginate' => 3,
+    'paginate' => 10,
     'limit' => 3,
 ];

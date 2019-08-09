@@ -9,7 +9,7 @@ $(document).ready(function(){
             });
 
             var postId = $(this).data('post-id');
-            var url = '/posts/' + postId;
+            var url = '/admin/posts/' + postId;
 
             $.ajax({
                 url: url,

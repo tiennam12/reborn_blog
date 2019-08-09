@@ -5,6 +5,8 @@
 /storage/*.key
 /public/css
 /public/js
+/public/vendor/adminlte
+/resouces/lang/vendor
 /public/mix-manifest.json
 /vendor
 .env

@@ -8,6 +8,7 @@ use Auth;
 use Illuminate\Http\Request;
 use App\Services\PostService;
 use App\Http\Requests\CreatePostRequest;
+use App\Http\Requests\EditPostRequest;
 use App\Http\Requests\UpdatePostRequest;
 
 class PostController extends Controller
@@ -25,7 +26,7 @@ class PostController extends Controller
     public function index() {
         $posts = Post::paginate(config('posts.paginate'));
 
-        return view('posts.index', ['posts' => $posts]);
+        return view('admin.posts.index', ['posts' => $posts]);
     }
 
     /**
@@ -70,13 +71,19 @@ class PostController extends Controller
         return view('user.article', ['post' => $post]);
     }
 
+    public function admin_show($id) {
+        $post = $this->postService->show($id);
+
+        return view('admin.posts.show', ['post' => $post]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id) {
+    public function edit(EditPostRequest $request, $id) {
         $post = $this->postService->edit($id);
 
         return view('posts.edit', ['post' => $post]);

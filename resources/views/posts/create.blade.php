@@ -35,7 +35,7 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('posts.title') }}</label>
+                            <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('post.title') }}</label>
 
                             <div class="col-md-6">
                                 <input id="title" type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" required>
@@ -46,7 +46,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="content" class="col-md-4 col-form-label text-md-right">{{ __('posts.content') }}</label>
+                            <label for="content" class="col-md-4 col-form-label text-md-right">{{ __('post.content') }}</label>
                             <textarea name="content" class="form-control{{ $errors->has('content') ? ' is-invalid' : '' }}" id="content"></textarea>
                             <script>
                                 var simplemde = new SimpleMDE({ element: $("#content")[0] });
@@ -57,7 +57,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('posts.create') }}
+                                    {{ __('post.create') }}
                                 </button>
                             </div>
                         </div>

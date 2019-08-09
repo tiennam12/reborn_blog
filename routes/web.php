@@ -15,8 +15,6 @@ Route::get('/', function () {
     return view('user.home');
 })->middleware('language');
 
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home')->middleware('language');
 
 Route::get('language/{locale}', 'LanguageController@change')->name('language.change');
@@ -41,8 +39,7 @@ Route::group(['prefix' => 'tags'], function() {
     Route::get('/{tag}/edit', 'TagController@edit')->name('tags.edit');
     Route::get('/create', 'TagController@create')->name('tags.create');
     Route::get('/{tag}', 'TagController@show')->name('tags.show');
-    Route::post('/{tag}', 'TagController@update')->name('tags.update');
-    Route::delete('/{tag}', 'TagController@destroy')->name('tags.destroy');
+    Route::post('/{tag}', 'TagController@update')->name('tags.update');    
     Route::get('/', 'TagController@index')->name('tags.index');
     Route::post('/', 'TagController@store')->name('tags.store');
 });
@@ -52,7 +49,6 @@ Route::group(['prefix' => 'posts', 'middleware' => 'auth'], function() {
     Route::get('/create', 'PostController@create')->name('posts.create');
     Route::get('/{post}', 'PostController@show')->name('posts.show');
     Route::post('/{post}', 'PostController@update')->name('posts.update');
-    Route::delete('/{post}', 'PostController@destroy')->name('posts.destroy');
     Route::get('/', 'PostController@index')->name('posts.index');
     Route::post('/', 'PostController@store')->name('posts.store');
 });
@@ -61,4 +57,22 @@ Route::group(['prefix' => 'comments', 'middleware' => 'auth'], function() {
     Route::post('/', 'CommentController@store')->name('comments.store');
 });
 
+Route::view('/fail', 'fail');
+
 Route::post('/ajax_upload/action', 'AjaxUploadController@action')->name('ajaxupload.action');
+
+Auth::routes();
+
+Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function() {
+    Route::get('/home', 'AdminController@index')->name('admin.home');
+
+    Route::get('tags/{tag}/edit', 'TagController@edit')->name('tags.edit');
+    Route::delete('/tags/{tag}', 'TagController@destroy')->name('tags.destroy');
+    Route::get('/tags', 'TagController@index')->name('admin.tag');
+
+    Route::delete('/posts/{post}', 'PostController@destroy')->name('posts.destroy');
+    Route::get('/posts', 'PostController@index')->name('admin.post');
+    Route::get('posts/{post}', 'PostController@admin_show')->name('posts.show');
+
+    Route::get('/users', 'UserController@index')->name('admin.user');
+});

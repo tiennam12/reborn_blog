@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    $('.btn-del-tag').click(function() {
+    $('.btn-del-user').click(function() {
         if (confirm('You are sure?')) {
             $.ajaxSetup({
                 headers: {
@@ -8,16 +8,15 @@ $(document).ready(function(){
                 }
             });
 
-            var tagId = $(this).data('tag-id');
-            var url = '/admin/tags/' + tagId;
+            var userId = $(this).data('user-id');
+            var url = '/admin/users/' + userId;
 
             $.ajax({
                 url: url,
                 type: 'DELETE',
                 success: function(result) {
-
                     if (result.status) {
-                        $('.row_' + tagId).remove();
+                        $('.row_' + userId).remove();
                     } else {
                         alert(result.msg);
                     }

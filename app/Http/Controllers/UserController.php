@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Services\UserService;
 use Illuminate\Http\Request;
 
@@ -32,5 +33,11 @@ class UserController extends Controller
         $user = $this->userService->update($data, $id);
 
         return redirect()->route('users.edit', ['id' => $user->id])->with('msg', __('message.update_success'));
+    }
+
+    public function index() {   
+        $users = User::paginate(config('users.paginate'));
+
+        return view('admin.users.index',  ['users' => $users]);
     }
 }
