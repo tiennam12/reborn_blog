@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-sm-2 mt-5">
             <div class="info col-sm-12">
-                <img src="{{ asset('image/profile.png')}}" alt="" width="130" height="130"
+                <img src="{{ asset('images/profile.png')}}" alt="" width="130" height="130"
                     class="rounded-circle text-center mb-2">
                 <h5 class="text-center font-weight-bold text-info">{{ auth()->user()->fullname }}</h5>
                 <div class="col-sm-4 border-right"></div>
@@ -16,7 +16,7 @@
         <div class="col-sm-9 mt-5 ml-2">
             <div class="row">
                 <div class="col-sm-1">
-                    <a href="#"><img src="{{ asset('image/profile.png') }}" alt="" class="rounded-circle" width="50px"
+                    <a href="#"><img src="{{ asset('images/profile.png') }}" alt="" class="rounded-circle" width="50px"
                             height="50px"></a>
                 </div>
                 {{-- End author info --}}
@@ -38,7 +38,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-1">
-                    <a href="#"><img src="{{ asset('image/profile.png') }}" alt="" class="rounded-circle" width="50px"
+                    <a href="#"><img src="{{ asset('images/profile.png') }}" alt="" class="rounded-circle" width="50px"
                             height="50px"></a>
                 </div>
                 {{-- End author info --}}
@@ -60,7 +60,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-1">
-                    <a href="#"><img src="{{ asset('image/profile.png') }}" alt="" class="rounded-circle" width="50px"
+                    <a href="#"><img src="{{ asset('images/profile.png') }}" alt="" class="rounded-circle" width="50px"
                             height="50px"></a>
                 </div>
                 {{-- End author info --}}
@@ -82,7 +82,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-1">
-                    <a href="#"><img src="{{ asset('image/profile.png') }}" alt="" class="rounded-circle" width="50px"
+                    <a href="#"><img src="{{ asset('images/profile.png') }}" alt="" class="rounded-circle" width="50px"
                             height="50px"></a>
                 </div>
                 {{-- End author info --}}
@@ -104,7 +104,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-1">
-                    <a href="#"><img src="{{ asset('image/profile.png') }}" alt="" class="rounded-circle" width="50px"
+                    <a href="#"><img src="{{ asset('images/profile.png') }}" alt="" class="rounded-circle" width="50px"
                             height="50px"></a>
                 </div>
                 {{-- End author info --}}

@@ -22,7 +22,7 @@
                     <div class="row">
                         {{-- author-info --}}
                         <div class="col-sm-1">
-                            <a href="#"><img src="{{ asset('image/profile.png') }}" alt="" class="rounded-circle"
+                            <a href="#"><img src="{{ asset('images/profile.png') }}" alt="" class="rounded-circle"
                                     width="50px" height="50px"></a>
                         </div>
                         {{-- End author info --}}
@@ -44,7 +44,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-1">
-                            <a href="#"><img src="{{ asset('image/profile.png') }}" alt="" class="rounded-circle"
+                            <a href="#"><img src="{{ asset('images/profile.png') }}" alt="" class="rounded-circle"
                                     width="50px" height="50px"></a>
                         </div>
                         <div class="col-sm-11">
@@ -65,7 +65,7 @@
                 <div class="card-body border-dark">
                     <div class="row">
                         <div class="col-sm-1">
-                            <a href="#"><img src="{{ asset('image/profile.png') }}" alt="" class="rounded-circle"
+                            <a href="#"><img src="{{ asset('images/profile.png') }}" alt="" class="rounded-circle"
                                     width="50px" height="50px"></a>
                         </div>
                         <div class="col-sm-11">
@@ -86,7 +86,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-1">
-                            <a href="#"><img src="{{ asset('image/profile.png') }}" alt="" class="rounded-circle"
+                            <a href="#"><img src="{{ asset('images/profile.png') }}" alt="" class="rounded-circle"
                                     width="50px" height="50px"></a>
                         </div>
                         <div class="col-sm-11">
@@ -165,7 +165,7 @@
                                 <div class="card-text mb-1">
                                     <div class="row">
                                         <div class="col-sm-2">
-                                            <a href="#"><img src="{{ asset('image/profile.png') }}" alt=""
+                                            <a href="#"><img src="{{ asset('images/profile.png') }}" alt=""
                                                     class="rounded-circle" width="20px" height="20px"></a>
                                         </div>
                                         <div class="col-sm-10">
@@ -176,7 +176,7 @@
                                 <div class="card-text mb-1">
                                     <div class="row">
                                         <div class="col-sm-2">
-                                            <a href="#"><img src="{{ asset('image/profile.png') }}" alt=""
+                                            <a href="#"><img src="{{ asset('images/profile.png') }}" alt=""
                                                     class="rounded-circle" width="20px" height="20px"></a>
                                         </div>
                                         <div class="col-sm-10">
@@ -187,7 +187,7 @@
                                 <div class="card-text mb-1">
                                     <div class="row">
                                         <div class="col-sm-2">
-                                            <a href="#"><img src="{{ asset('image/profile.png') }}" alt=""
+                                            <a href="#"><img src="{{ asset('images/profile.png') }}" alt=""
                                                     class="rounded-circle" width="20px" height="20px"></a>
                                         </div>
                                         <div class="col-sm-10">

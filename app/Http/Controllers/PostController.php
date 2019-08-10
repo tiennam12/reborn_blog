@@ -49,7 +49,6 @@ class PostController extends Controller
         ]);
 
         $data['user_id'] = auth()->id();
-
         $post = $this->postService->store($data);
 
         if (!$post) {

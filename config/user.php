@@ -1,5 +1,5 @@
 <?php
 
 return [
-	'image_path' => 'image',
+	'image_path' => 'images',
 ];

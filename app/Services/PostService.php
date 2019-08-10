@@ -23,7 +23,7 @@ class PostService
 
     public function store($data) { 
         try {
-            $post = post::create($data);
+            $post = Post::create($data);
         } catch (Exception $e) {
             return false;
         }

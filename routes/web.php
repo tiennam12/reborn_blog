@@ -47,7 +47,7 @@ Route::group(['prefix' => 'tags'], function() {
     Route::post('/', 'TagController@store')->name('tags.store');
 });
 
-Route::group(['prefix' => 'posts'], function() {
+Route::group(['prefix' => 'posts', 'middleware' => 'auth'], function() {
     Route::get('/{post}/edit', 'PostController@edit')->name('posts.edit');
     Route::get('/create', 'PostController@create')->name('posts.create');
     Route::get('/{post}', 'PostController@show')->name('posts.show');
@@ -55,6 +55,10 @@ Route::group(['prefix' => 'posts'], function() {
     Route::delete('/{post}', 'PostController@destroy')->name('posts.destroy');
     Route::get('/', 'PostController@index')->name('posts.index');
     Route::post('/', 'PostController@store')->name('posts.store');
+});
+
+Route::group(['prefix' => 'comments', 'middleware' => 'auth'], function() {
+    Route::post('/', 'CommentController@store')->name('comments.store');
 });
 
 Route::post('/ajax_upload/action', 'AjaxUploadController@action')->name('ajaxupload.action');
