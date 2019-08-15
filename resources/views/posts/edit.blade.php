@@ -54,6 +54,19 @@
                             </script>
                         </div>
 
+                        {!! Form::label('tag', 'Tags', ['class' => 'control-label']) !!}
+                        <button type="button" class="btn btn-primary btn-xs" id="selectbtn-tag">{{ __('tag.select_all')}}
+                        </button>
+                        <button type="button" class="btn btn-primary btn-xs" id="deselectbtn-tag">{{ __('tag.deselect_all')}}
+                        </button>
+                        {!! Form::select('tag[]', $tags, old('tag') ? old('tag') : $post->tag->pluck('id')->toArray(), ['class' => 'form-control select2', 'multiple' => 'multiple', 'id' => 'selectall-tag' ]) !!}
+                        <p class="help-block"></p>
+                        @if($errors->has('tag'))
+                            <p class="help-block">
+                                {{ $errors->first('tag') }}
+                            </p>
+                        @endif
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -68,6 +81,20 @@
     </div>
 </div>
 
+<script>
+    $("#selectbtn-tag").click(function(){
+        $("#selectall-tag > option").prop("selected","selected");
+        $("#selectall-tag").trigger("change");
+    });
+    $("#deselectbtn-tag").click(function(){
+        $("#selectall-tag > option").prop("selected","");
+        $("#selectall-tag").trigger("change");
+    });
+
+    $(document).ready(function () {
+        $('.select2').select2();
+    });
+</script>
 
 <script>
 $(document).ready(function() {

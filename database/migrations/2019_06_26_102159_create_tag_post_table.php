@@ -14,8 +14,8 @@ class CreateTagPostTable extends Migration
     public function up() {
         Schema::create('tag_post', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('tag_id');
-            $table->bigInteger('post_id');
+            $table->bigInteger('tag_id')->unsigned()->nullable();
+            $table->bigInteger('post_id')->unsigned()->nullable();
             $table->timestamps();
         });
     }

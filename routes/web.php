@@ -80,7 +80,7 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
 
     Route::delete('/posts/{post}', 'PostController@destroy')->name('posts.destroy');
     Route::get('/posts', 'PostController@index')->name('admin.post');
-    Route::get('posts/{post}', 'PostController@admin_show')->name('posts.show');
+    Route::get('posts/{post}', 'PostController@admin_show')->name('adminposts.show');
 
     Route::get('/users', 'UserController@index')->name('admin.user');
 });

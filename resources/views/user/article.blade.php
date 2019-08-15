@@ -4,25 +4,25 @@
     <div class="row">
         <div class="col-sm-9 mt-5 left-article">
             <div class="card border-light main-article overflow-hidden">
-        <div class="col-sm-9 mt-5">
-            <div class="card overflow-auto border-white"
-                <div class="card-body">
-                    <div class="cart-title mb-4">
-                        <h4 class="font-weight-bold mb-4 h3 text-info">@markdown{!! $post->title !!}@endmarkdown</h4>
-                        <h5 class="mb-4"><a href="#" class="mr-2"><span class="badge badge-light">Tag here!</span></a>
-                            <a href="#" class="mr-2"><span class="badge badge-light">Tag here!</span></a>
-                            <a href="#" class="mr-2"><span class="badge badge-light">Tag here!</span></a>
-                        </h5>
-                        <footer class="blockquote-footer"><a href="#"><img src="{{ asset('images/' . $post->user->image) }}" alt="" class="rounded-circle mr-2" width="20px" height="20px">{{ $post->user->fullname }}</a>
-                        </footer>
-                    </div>
-                    <p class="card-text">
-                        @markdown{!! $post->content !!}@endmarkdown
-                    </p>
-                </div>
-            </div>
+                <div class="col-sm-9 mt-5">
+                    <div class="card overflow-auto border-white">
+                        <div class="card-body">
+                            <div class="cart-title mb-4">
+                                <h4 class="font-weight-bold mb-4 h3 text-info">@markdown{!! $post->title !!}@endmarkdown</h4>
+                                <h5 class="mb-4">
+                                @foreach ($post->tag as $singleTag)
+                                    <a href="/tags/{{ $singleTag->id }}" class="mr-2"><span class="badge badge-light">{{ $singleTag->name }}</span></a>
+                                @endforeach
+                                </h5>
+                                <footer class="blockquote-footer"><a href="#"><img src="{{ showAvatar($post->user->provider) }}" alt="" class="rounded-circle mr-2" width="20px" height="20px">{{ $post->user->fullname }}</a>
+                                </footer>
+                            </div>
+                            <p class="card-text">
+                                @markdown{!! $post->content !!}@endmarkdown
+                            </div>
+                        </div>
 
-            <div class="comment col-sm-13">
+                    <div class="comment col-sm-13">
                         <div class="card mt-1 border-white">
                             <div class="card-body comment-component">
                                 @foreach ($post->comments as $comment)
@@ -43,16 +43,20 @@
                                 @endforeach
                             </div>
                         </div>
-                    <form action="{{ route('comments.store') }}" method="POST">
-                        {{ csrf_field() }}
-                        <div class="form-group">
-                            <textarea class="form-control" name="content" id="content" rows="3" required=""></textarea>
-                            <input type="hidden"  class="post_id" name="post_id" value="{{ $post->id }}">
-                            <button type="submit" class="btn btn-info mt-1" id="comment" style="display: none;">Comment</button>
-                        </div>
-                    </form>
+
+                        <form action="{{ route('comments.store') }}" method="POST">
+                            {{ csrf_field() }}
+                            <div class="form-group">
+                                <textarea class="form-control" name="content" id="content" rows="3" required=""></textarea>
+                                <input type="hidden" name="post_id" id="post_id" value="{{ $post->id }}">
+                                <button type="submit" class="btn btn-info mt-1" id="comment" style="display: none;">Comment</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
+
         <div class="col-sm-3 mt-5 right-article">
             <div class="saved">
                 <div class="row">

@@ -28,4 +28,8 @@ class Post extends Model {
     public function bookmarks() {
         return $this->belongsToMany('App\Bookmark');
     }
+
+    public function tag() {
+        return $this->belongsToMany(Tag::class, 'tag_post');
+    }
 }

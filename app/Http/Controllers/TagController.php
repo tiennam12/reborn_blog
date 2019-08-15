@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Tag;
+use App\Post;
 use App\User;
 use Auth;
 use Illuminate\Http\Request;
@@ -49,9 +50,7 @@ class TagController extends Controller
             'name',
             'description',
         ]);
-
         $data['user_id'] = auth()->id();
-
         $tag = $this->tagService->store($data);
 
         if (!$tag) {

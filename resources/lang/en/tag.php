@@ -9,4 +9,6 @@ return [
     'edit' => 'Edit',
     'update' => 'Update',
     'createby' => 'Create by',
+    'select_all' => 'Select all',
+    'deselect_all' => 'Deselect all',
 ];
