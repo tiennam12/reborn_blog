@@ -22,7 +22,7 @@ class PasswordController extends Controller
     	return view('user.user-password', ['user' => $user]);
     }
 
-    public function changePassword(UpdatePasswordRequest $request, $id)
+    public function changePassword(Request $request, $id)
     {
     	$data = $request->only([
     		'old_password',

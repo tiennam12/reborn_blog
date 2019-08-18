@@ -61,7 +61,7 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a class="nav-link text-light" href="#"><i
+                                <a class="nav-link text-light" href="{{ route('bookmarks.index') }}"><i
                                         class="fas fa-save px-2"></i>{{ __('header.saved') }}</a>
                             </li>
                             <li class="nav-item">
@@ -74,10 +74,10 @@
                                     <img src="{{ showAvatar(auth()->user()->provider) }}" alt="" class="rounded-circle" width="26px" height="26px">
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('users.edit', ['id' => auth()->user()->id]) }}"><i
+                                    <a class="dropdown-item" href="{{ route('authors.show', ['id' => auth()->id()]) }}"><i
                                             class="fas fa-user px-2"></i>{{ __('header.profile') }}</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#"><i
+                                    <a class="dropdown-item" href="{{ route('users.edit', ['id' => auth()->user()->id]) }}"><i
                                             class="fas fa-cog px-2"></i>{{ __('header.setting') }}</a>
                                     <div class="dropdown-divider"></div>
                                     <div class="dropdown-item"><i class="fas fa-sign-out-alt px-2"

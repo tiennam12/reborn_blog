@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\User;
+use App\Bookmark;
 use Auth;
 use Illuminate\Http\Request;
 use App\Services\PostService;
@@ -14,6 +15,7 @@ use App\Http\Requests\UpdatePostRequest;
 class PostController extends Controller
 {
     protected $postService;
+    static $flag;
 
     public function __construct(PostService $postService) {
         $this->postService = $postService;
@@ -68,7 +70,15 @@ class PostController extends Controller
     public function show($id) {
         $post = $this->postService->show($id);
 
-        return view('user.article', ['post' => $post]);
+        $bookmark = Bookmark::find(auth()->id());
+
+        if ($bookmark->posts()->where('post_id', $id)->exists()) {
+            PostController::$flag = true;
+        } else {
+            PostController::$flag = false;
+        }
+
+        return view('user.article', ['post' => $post, 'flag' => PostController::$flag]);
     }
 
     public function admin_show($id) {

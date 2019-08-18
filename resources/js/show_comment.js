@@ -9,7 +9,7 @@ $(document).ready(function() {
             });
 
         var content = tinyMCE.activeEditor.getContent();
-        var postID = $('#post_id').val();
+        var postID = $('.post_id').val();
         var url = '/comments/';
         var html = '';
         tinyMCE.activeEditor.setContent('');
@@ -35,6 +35,29 @@ $(document).ready(function() {
                     + '</div>';
 
                 $('.comment-component').append(commentHtml);
+            }
+        });
+    });
+
+    $('#button_save').click(function() {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        var url = '/bookmarks/';
+        var postID = $('.post_id').val();
+
+        $.ajax({
+            url: url,
+            type: "POST",
+            dataType: "json",
+            data: {post_id:postID},
+            success: function(result) {
+                $('#button_save').addClass('btn btn-outline-danger btn-block rounded-pill');
+                document.getElementById('button_save').innerHTML = 'Saved';
+                $('#button_save').attr('disabled', true);
             }
         });
     });

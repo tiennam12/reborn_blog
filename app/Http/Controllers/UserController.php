@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Services\UserService;
 use Illuminate\Http\Request;
+use App\User;
 
 class UserController extends Controller
 {
@@ -34,6 +35,7 @@ class UserController extends Controller
 
         return redirect()->route('users.edit', ['id' => $user->id])->with('msg', __('message.update_success'));
     }
+
 
     public function index() {   
         $users = User::paginate(config('users.paginate'));

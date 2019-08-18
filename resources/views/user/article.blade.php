@@ -12,19 +12,11 @@
                         <h5 class="mb-4"><a href="#" class="mr-2"><span class="badge badge-light">Tag here!</span></a>
                             <a href="#" class="mr-2"><span class="badge badge-light">Tag here!</span></a>
                             <a href="#" class="mr-2"><span class="badge badge-light">Tag here!</span></a>
-                        </h5
-                        <footer class="blockquote-footer"><a href="#"><img src="{{ showAvatar($post->user->provider) }}" alt="" class="rounded-circle mr-2" width="20px" height="20px">{{ $post->user->fullname }}</a>
+                        </h5>
+                        <footer class="blockquote-footer"><a href="#"><img src="{{ asset('images/' . $post->user->image) }}" alt="" class="rounded-circle mr-2" width="20px" height="20px">{{ $post->user->fullname }}</a>
                         </footer>
                     </div>
                     <p class="card-text">
-                        @markdown
-                            {!! $post->content !!}
-                        @endmarkdow
-                        <footer class="blockquote-footer"><a href="#"><img src="{{ asset('image/profile.png') }}" alt=""
-                                    class="rounded-circle mr-2" width="20px" height="20px"></a>Name User
-                        </footer>
-                    </div>
-                    <p class="card-text my-auto">
                         @markdown{!! $post->content !!}@endmarkdown
                     </p>
                 </div>
@@ -36,7 +28,7 @@
                                 @foreach ($post->comments as $comment)
                                     <div class="row comment-item">
                                         <div class="col-sm-1">
-                                            <img src="{{ showAvatar($comment->user->provider) }}" alt="" class="rounded-circle mr-2" width="50px" height="50px">
+                                            <img src="{{ asset('images/'. $comment->user->image) }}" alt="" class="rounded-circle mr-2" width="50px" height="50px">
                                         </div>
                                         <div class="col-sm-11">
                                             <div class="card-title text-info">
@@ -55,7 +47,7 @@
                         {{ csrf_field() }}
                         <div class="form-group">
                             <textarea class="form-control" name="content" id="content" rows="3" required=""></textarea>
-                            <input type="hidden" name="post_id" id="post_id" value="{{ $post->id }}">
+                            <input type="hidden"  class="post_id" name="post_id" value="{{ $post->id }}">
                             <button type="submit" class="btn btn-info mt-1" id="comment" style="display: none;">Comment</button>
                         </div>
                     </form>
@@ -77,8 +69,11 @@
                         </div>
                         <div class="row mt-3">
                             <div class="col-sm-12">
-                                <a href="#" class="text-decoration-none"><button type="button"
-                                        class="btn btn-outline-info btn-block rounded-pill">{{ __('article.save') }}</button></a>
+                                @if($flag)
+                                    <button type="submit" class="btn btn-outline-danger btn-block rounded-pill" id="button_unsave" disabled="true">{{ __('article.saved') }}</button>
+                                @else
+                                    <button type="submit" class="btn btn-outline-info btn-block rounded-pill" id="button_save">{{ __('article.save') }}</button>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -88,7 +83,7 @@
             <div class="author-info col-sm-12 mt-3">
                 <div class="row">
                     <div class="col-sm-2 image-author">
-                        <a href="#"><img src="{{ showAvatar($post->user->provider) }}" alt="" class="rounded-circle mr-2"
+                        <a href="#"><img src="{{ asset('images/profile.png') }}" alt="" class="rounded-circle mr-2"
                                 width="70px" height="70px"></a>
                     </div>
                     <div class="col-sm-8 offset-sm-2 article-author">

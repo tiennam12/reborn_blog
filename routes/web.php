@@ -11,15 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('user.home');
-})->middleware('language');
+
+Auth::routes();
+
+Route::get('/', 'HomeController@index')->name('home')->middleware('language');
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('language');
 
 Route::get('language/{locale}', 'LanguageController@change')->name('language.change');
 
-Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/users/{id}', 'UserController@show')->name('users.show');
 
 Route::get('login/{provider}/callback','SocialController@callback');
@@ -27,7 +27,7 @@ Route::get('login/{provider}', 'SocialController@redirect');
 
 Route::group(['prefix' => 'users', 'middleware' => 'language'], function() {
 	Route::get('/{id}', 'UserController@edit')->name('users.edit');
-	Route::put('/{id}', 'UserController@update')->name('users.update');	
+	Route::put('/{id}', 'UserController@update')->name('users.update');
 });
 
 Route::group(['prefix' => 'passwords', 'middleware' => 'language'], function() {
@@ -44,7 +44,7 @@ Route::group(['prefix' => 'tags'], function() {
     Route::post('/', 'TagController@store')->name('tags.store');
 });
 
-Route::group(['prefix' => 'posts', 'middleware' => 'auth'], function() {
+Route::group(['prefix' => 'posts', 'middleware' => ['auth', 'language']], function() {
     Route::get('/{post}/edit', 'PostController@edit')->name('posts.edit');
     Route::get('/create', 'PostController@create')->name('posts.create');
     Route::get('/{post}', 'PostController@show')->name('posts.show');
@@ -53,15 +53,23 @@ Route::group(['prefix' => 'posts', 'middleware' => 'auth'], function() {
     Route::post('/', 'PostController@store')->name('posts.store');
 });
 
+Route::group(['prefix' => 'bookmarks', 'middleware' => 'auth', 'middleware' => 'language'], function() {
+    Route::post('/', 'BookmarkController@store')->name('bookmarks.store');
+    Route::get('/', 'BookmarkController@index')->name('bookmarks.index');
+});
+
 Route::group(['prefix' => 'comments', 'middleware' => 'auth'], function() {
     Route::post('/', 'CommentController@store')->name('comments.store');
 });
 
+
 Route::view('/fail', 'fail');
 
-Route::post('/ajax_upload/action', 'AjaxUploadController@action')->name('ajaxupload.action');
+Route::group(['prefix' => 'authors', 'middleware' => 'auth'], function() {
+    Route::get('/{id}', 'AuthorController@show')->name('authors.show');
+});
 
-Auth::routes();
+Route::post('/ajax_upload/action', 'AjaxUploadController@action')->name('ajaxupload.action');
 
 Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function() {
     Route::get('/home', 'AdminController@index')->name('admin.home');

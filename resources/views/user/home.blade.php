@@ -19,90 +19,33 @@
                     </ul>
                 </div>
                 <div class="card-body">
-                    <div class="row">
+                    @foreach($posts as $post)
+                    <div class="row mb-5">
                         {{-- author-info --}}
                         <div class="col-sm-1">
-                            <a href="#"><img src="{{ asset('images/profile.png') }}" alt="" class="rounded-circle"
-                                    width="50px" height="50px"></a>
+                            @if ($post->user->image)
+                                <a href="#"><img src="{{ asset('images/'. $post->user->image) }}" alt="" class="rounded-circle" width="50px" height="50px"></a>
+                            @else
+                                <a href="#"><img src="{{ asset('images/profile.png') }}" alt="" class="rounded-circle" width="50px" height="50px"></a>
+                            @endif
                         </div>
                         {{-- End author info --}}
                         {{-- Content --}}
                         <div class="col-sm-11">
-                            <h5 class="card-title"><a href="#" class="text-decoration-none  font-weight-bold text-info">Special title here!</a>
+                            <h5 class="card-title"><a href="{{ route('posts.show', ['id' => $post->id]) }}" class="text-decoration-none  font-weight-bold text-info">{{ $post->title }}</a>
                                 <a href="#"><span class="badge badge-light">Tag here!</span></a>
                                 <a href="#"><span class="badge badge-light">Tag here!</span></a>
                                 <a href="#"><span class="badge badge-light">Tag here!</span></a>
                                 <a href="#"><span class="badge badge-light">Tag here!</span></a>
                             </h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.
+                            <p class="card-text">
+                                @markdown{!! substr($post->content, 0, 250) !!}{{ ' ...' }}@endmarkdown
                             </p>
-                            <footer class="blockquote-footer"><a href="#" class="mr-1 text-info">Author Posthere!</a>Someone famous</footer>
+                            <footer class="blockquote-footer"><a href="{{ route('authors.show', ['id' => $post->user->id]) }}" class="mr-1 text-info">{{ $post->user->fullname }}</a>{{ $post->created_at }}</footer>
                         </div>
                         {{-- End content --}}
                     </div>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-1">
-                            <a href="#"><img src="{{ asset('images/profile.png') }}" alt="" class="rounded-circle"
-                                    width="50px" height="50px"></a>
-                        </div>
-                        <div class="col-sm-11">
-                            <h5 class="card-title"><a href="#" class="text-decoration-none  font-weight-bold text-info">Special title here!</a>
-                                <a href="#"><span class="badge badge-light">Tag here!</span></a>
-                                <a href="#"><span class="badge badge-light">Tag here!</span></a>
-                                <a href="#"><span class="badge badge-light">Tag here!</span></a>
-                                <a href="#"><span class="badge badge-light">Tag here!</span></a>
-                            </h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.
-                            </p>
-                            <footer class="blockquote-footer"><a href="#" class="mr-1 text-info">Author Post
-                                    here!</a>Someone
-                                famous</footer>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body border-dark">
-                    <div class="row">
-                        <div class="col-sm-1">
-                            <a href="#"><img src="{{ asset('images/profile.png') }}" alt="" class="rounded-circle"
-                                    width="50px" height="50px"></a>
-                        </div>
-                        <div class="col-sm-11">
-                            <h5 class="card-title"><a href="#" class="text-decoration-none  font-weight-bold text-info">Special title here!</a>
-                                <a href="#"><span class="badge badge-light">Tag here!</span></a>
-                                <a href="#"><span class="badge badge-light">Tag here!</span></a>
-                                <a href="#"><span class="badge badge-light">Tag here!</span></a>
-                                <a href="#"><span class="badge badge-light">Tag here!</span></a>
-                            </h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.
-                            </p>
-                            <footer class="blockquote-footer"><a href="#" class="mr-1 text-info">Author Post
-                                    here!</a>Someone
-                                famous</footer>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-1">
-                            <a href="#"><img src="{{ asset('images/profile.png') }}" alt="" class="rounded-circle"
-                                    width="50px" height="50px"></a>
-                        </div>
-                        <div class="col-sm-11">
-                            <h5 class="card-title"><a href="#" class="text-decoration-none  font-weight-bold text-info">Special title here!</a>
-                                <a href="#"><span class="badge badge-light">Tag here!</span></a>
-                                <a href="#"><span class="badge badge-light">Tag here!</span></a>
-                                <a href="#"><span class="badge badge-light">Tag here!</span></a>
-                                <a href="#"><span class="badge badge-light">Tag here!</span></a>
-                            </h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.
-                            </p>
-                            <footer class="blockquote-footer"><a href="#" class="mr-1 text-info">Author Post
-                                    here!</a>Someone
-                                famous</footer>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
